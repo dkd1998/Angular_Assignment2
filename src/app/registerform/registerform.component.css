@@ -1,0 +1,9 @@
+.content{
+    max-width: 500px;
+    margin:auto;
+    background-color: white;
+    padding: 2% 2%;
+}
+.errors{
+    color: red;
+}

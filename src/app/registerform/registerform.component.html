@@ -1,0 +1,63 @@
+<div class="container mt-5">
+
+    <form class="content" [formGroup]="registerForm" (ngSubmit)="submitData()">
+        <h3 class="text-center">
+            Registeration Form
+        </h3>
+        <div class="row mt-4 mb-2">
+            <div class="col-lg-6 col-6 ">
+                <input type="text" formControlName="firstName" class="form-control" placeholder="First Name">
+                <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                    <span class="errors" *ngIf="firstname.errors?.required">*First Name is required</span>
+                    <span class="errors" *ngIf="firstname.errors?.pattern">*Enter characters only</span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-6 ">
+                <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+                <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+                    <span class="errors" *ngIf="lastname.errors?.required">*Last Name is required</span>
+                    <span class="errors" *ngIf="lastname.errors?.pattern">*Enter characters only</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-12 mt-2 mb-2">
+            <input type="text" formControlName="address" class="form-control" placeholder="Address">
+            <div *ngIf="address.invalid && (address.touched || address.dirty)">
+                <span class="errors" *ngIf="address.errors?.required">*Address is required</span>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-12 mt-2 mb-2">
+            <input type="text" formControlName="mobileNumber" class="form-control" placeholder="Mobile Number">
+            <div *ngIf="mobilenumber.invalid && (mobilenumber.touched || mobilenumber.dirty)">
+                <span class="errors" *ngIf="mobilenumber.errors?.required">*Mobile number is required</span>
+                <span class="errors" *ngIf="mobilenumber.errors?.pattern">*Enter vaild mobile number (Must contain 10
+                    digits)</span>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-12 mt-2 mb-2">
+            <label class="col-sm-3" style="padding-left: .75em; color: grey;">Date of Birth</label>
+            <input type="date" formControlName="dob" id="dob" name="birthdate">
+            <div *ngIf="dob.invalid && (dob.touched || dob.dirty)">
+                <span class="errors" *ngIf="dob.errors?.required">*Date of Birth is required</span>
+            </div>
+
+        </div>
+
+        <div class="col-lg-12 col-12 mt-2 mb-2">
+            <input type="text" formControlName="emailId" class="form-control" placeholder="E-Mail" >
+            <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                <span class="errors" *ngIf="email.errors?.required">*E-Mail is required</span>
+                <span class="errors" *ngIf="email.errors?.email">*Enter valid E-Mail address </span>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-12 mt-3">
+            <button class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+
+
+        </div>
+    </form>
+</div>
